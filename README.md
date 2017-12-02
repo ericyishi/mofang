@@ -21,7 +21,7 @@
  * 使用PO模型
  
  ![Image text](https://raw.githubusercontent.com/ericyishi/img-folder/master/mofang02_PO.png)
-                         <P>图2 可以发现测试用例就是去操作不同的元素</P>
+                         <P>图2 可以发现流程就是去操作不同页面的的元素</P>
 
  ![Image text](https://raw.githubusercontent.com/ericyishi/img-folder/master/mofang03_structure.png)
                          <P>图3 将业务、元素、数据三者分离后的项目结构</p>
@@ -29,7 +29,7 @@
         
 ## 测试用例
 
- * 最后所有的测试用例都独立出来了
+ * 最后测试用例也独立出来了
  ```Java
 public class LoginTest extends CaseBase {
 	public DriverBase driver;
@@ -73,14 +73,14 @@ public class LoginTest extends CaseBase {
 }
  ```
  
- ![Image text](https://raw.githubusercontent.com/ericyishi/img-folder/master/ Mofang04_testngResult.png)
+  ![Image text](https://raw.githubusercontent.com/ericyishi/img-folder/master/Mofang04_testngResult.png)
                         <P>图4 使用testng运行结果</p>
  
  
  ## 总结
  
-  1.使用PO模型(Page Object）通过对界面元素的封装减少冗余代码，同时在后期维护中，若元素定位发生变化，只需要调整页面元素封装的代码，提高测试用例的可维护性。 业务逻辑和页面元素分离，再分离测试数据，就形成了一个不错的结构。但如果不是大系统，感觉线性写测试脚本应付一般的回归测试也是可以的。 
-  2.本例用selenium2 可以直接驱动firefox（也和firefox版本有关，太高是启动不了的），若用selenium3 就需要单独下载firefox的驱动了。
+  1. 使用PO模型(Page Object）通过对界面元素的封装减少冗余代码，同时在后期维护中，若元素定位发生变化，只需要调整页面元素封装的代码，提高测试用例的可维护性。 业务逻辑和页面元素分离，再分离测试数据，就形成了一个不错的结构。但如果不是大系统，感觉线性写测试脚本应付一般的回归测试也是可以的。 
+  2. 本例用selenium2 可以直接驱动firefox（也和firefox版本有关，太高是启动不了的），若用selenium3 就需要单独下载firefox的驱动了。
                         
                          
               
