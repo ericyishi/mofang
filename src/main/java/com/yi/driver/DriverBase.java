@@ -1,6 +1,12 @@
 package com.yi.driver;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -50,5 +56,25 @@ public class DriverBase {
 	public void moveAction(WebElement element){
 		Actions action =new Actions(driver);
     	action.moveToElement(element).perform();
+	}
+	
+	
+	/**
+	 * 截频
+	 * */
+	public void takeScreenShot(){
+		long date=System.currentTimeMillis();
+		String path=String.valueOf(date);
+		String curPath=System.getProperty("user.dir");
+		path=path+".jpg";
+		String newPicPath=curPath+"/capture/"+path;
+		File pics=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	   //将图片从内存存到指定的地方
+		try {
+			FileUtils.copyFile(pics,new File(newPicPath));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

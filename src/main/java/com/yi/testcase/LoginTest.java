@@ -4,13 +4,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.yi.business.HomePageBiz;
 import com.yi.business.LoginPageBiz;
 import com.yi.driver.DriverBase;
+import com.yi.util.ScreenCapture;
 
+@Listeners({ScreenCapture.class})
 public class LoginTest extends CaseBase {
 	public DriverBase driver;
 	public HomePageBiz homePageBiz;
@@ -42,6 +45,7 @@ public class LoginTest extends CaseBase {
 			System.out.println("登录成功");
 		}else{
 			System.out.println("登录失败");
+			driver.takeScreenShot();
 		}
 	}
 	
